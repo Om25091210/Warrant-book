@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+
+        <item android:id="@+id/nav_about" android:icon="@drawable/cg_logo"
+            android:title="About" />
+        <item android:id="@+id/nav_share" android:icon="@drawable/ic_share2"
+            android:title="Share"  />
+
+        <item android:id="@+id/nav_developer" android:icon="@drawable/ic_dev"
+            android:title="About Developers" />
+
+
+        <item android:id="@+id/nav_privacy" android:icon="@drawable/ic_policy"
+            android:title="Privacy Policy" />
+
+        <item android:id="@+id/nav_terms" android:icon="@drawable/ic_terms"
+            android:title="Terms &amp; Condition" />
+
+
+        <item android:id="@+id/nav_logout" android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+    </group>
+</menu>

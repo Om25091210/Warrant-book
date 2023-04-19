@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:scrollbars="none"
+    android:id="@+id/lay1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        fresco:layout_constraintBottom_toTopOf="@+id/messageInputContainer"
+        fresco:layout_constraintEnd_toEndOf="parent"
+        fresco:layout_constraintStart_toStartOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/draw_four"
+                android:backgroundTint="@color/light_yellow_bg"
+                android:ellipsize="end"
+                android:fontFamily="@font/quicksand_bold"
+                android:maxLines="1"
+                android:paddingStart="20dp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:paddingEnd="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:visibility="gone"
+                fresco:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                fresco:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintTop_toTopOf="@+id/imageView4"
+                android:text="Mark as done" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_back_view"
+                android:backgroundTint="@color/use_neumorph_orange"
+                android:contentDescription="@string/image"
+                android:padding="10dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tool:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/seen"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/bg_back_view"
+                android:backgroundTint="@color/use_neumorph_orange"
+                android:contentDescription="@string/image"
+                android:padding="10dp"
+                android:src="@drawable/ic_seen"
+                fresco:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                fresco:layout_constraintStart_toEndOf="@+id/imageView4"
+                fresco:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/bg_back_view"
+                android:backgroundTint="@color/use_neumorph_orange"
+                android:contentDescription="@string/image"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:src="@drawable/ic_delete"
+                fresco:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                fresco:layout_constraintStart_toEndOf="@+id/seen"
+                fresco:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:failureImage="@drawable/ic_undraw_profile_pic_ic5t"
+                app:roundedCornerRadius="100dp"
+                fresco:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintHorizontal_bias="0.498"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/imageView4"
+                fresco:placeholderImage="@drawable/ic_undraw_profile_pic_ic5t" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center"
+                android:textColor="@color/use_yellow"
+                android:textSize="@dimen/_15sdp"
+                fresco:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/profile_image"
+                tool:text="Abhijeet Sharma" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                fresco:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/textView11"
+                tool:text="@string/court_name" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_edt_text"
+                android:backgroundTint="@color/blue_grey_100"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/time">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/c_o"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/co"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="Ram charan" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView42"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/address"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="Aadarsh Nagar, Sirgitti, Bilaspur" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView44"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/police_station_"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ps"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="Tarabhar Thana" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/case_no_Edt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/case_no_"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/case_no"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="1852" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/section"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/section"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sec"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="IPC - 4567" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/court_Edt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="@string/court_name"
+                        android:textColor="@color/grey"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/court"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/amiko_bold"
+                        android:textColor="@color/use_yellow"
+                        android:textStyle="normal"
+                        tool:text="High Court" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/des"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/amiko_bold"
+                android:textColor="@color/use_yellow"
+                android:textStyle="normal"
+                fresco:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                fresco:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                fresco:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                tool:text="The following person was enabled in the afternoon, but now Brian has disabled the user, So just for the first time I'm telling you that whenever i will get this disabled mail i will disable the user too, right?" />
+
+            <TextView
+                android:id="@+id/txt_cmt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/amiko_bold"
+                android:text="@string/comments"
+                android:textColor="@color/use_yellow"
+                android:textStyle="normal"
+                fresco:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                fresco:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/des" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                fresco:layout_constraintTop_toBottomOf="@+id/txt_cmt"
+                tool:listitem="@layout/msg_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/messageInputContainer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/input_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btnSend"
+        >
+
+
+        <ImageButton
+            android:id="@+id/addEmoticon"
+            android:layout_width="21dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="@null"
+            android:contentDescription="@string/image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:tint="@color/message_input_button_inactive" />
+
+        <EditText
+            android:id="@+id/editWriteMessage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/quicksand_bold"
+            android:hint="Type a message"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:maxHeight="100dp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
+            android:textColorHint="@color/edit_message_hint"
+            app:layout_constraintLeft_toRightOf="@+id/addEmoticon"
+            app:layout_constraintStart_toEndOf="@+id/addEmoticon"
+            fresco:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnSend"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/ic_send_black_24dp"
+        app:backgroundTint="@color/use_yellow"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/messageInputContainer"
+        app:tint="@color/black" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Warrant Book</string>
+    <string name="image">" "</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="didn_t_you_receive_any_code">Didn\'t you receive any code?</string>
+    <string name="resend_new_code">RESEND NEW CODE</string>
+    <string name="edt_hint_email">Enter your Govt number</string>
+    <string name="edt_hint_name">Enter your Name.</string>
+    <string name="edt_title_email">Phone no.</string>//
+    <string name="edt_title_name">Name.</string>//
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="sampleText">By providing my phone number. I hereby agree and accept the <![CDATA[<a href="https://doc-hosting.flycricket.io/terms-and-condition/2ddf3383-a2e6-4017-9c7d-c364a3acd3f9/terms">Terms of Service</a>]]> and <![CDATA[<a href="https://doc-hosting.flycricket.io/warrant-policy-maker/dac3594b-61c0-4b58-bdf7-d79d3e29d929/privacy">Privacy Policy</a>]]> .</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_record">New Record</string>
+    <string name="crimial_name">Crimial Name*</string>
+    <string name="c_0">C/0*</string>
+    <string name="address">Address</string>
+    <string name="age">Age</string>
+    <string name="criminal_no">Crime No.*</string>
+    <string name="Enter">Enter</string>
+    <string name="section">Section</string>
+    <string name="court_name">Court Name</string>
+    <string name="more_details">More Details</string>
+    <string name="write_extra_information">Write extra information.</string>
+    <string name="submit">Submit</string>
+    <string name="upload_criminal_photo">Upload Criminal Photo</string>
+    <string name="police_station">Police Station*</string>
+    <string name="do_you_want_to_upload_this_file">Do you want to Upload this file?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="search_here">Search here</string>
+    <string name="pin">pin</string>
+    <string name="c_o">C/O</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="police_station_">Police Station</string>
+    <string name="case_no_">Case no.</string>
+    <string name="comments">Comments</string>
+    <string name="control_panel">Control Panel</string>
+    <string name="add_an_admin">Add admin</string>
+    <string name="enter_number">Enter number</string>
+    <string name="add_station_number">Add station number</string>
+    <string name="district">Add district</string>
+    <string name="district_name">District name</string>
+    <string name="enter_name">Enter name</string>
+    <string name="number">number</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "587504325771",
+    "project_id": "warrent-ea4b9",
+    "storage_bucket": "warrent-ea4b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587504325771:android:8e0c5d736b579dfca1b08e",
+        "android_client_info": {
+          "package_name": "com.alpha.apradhsuchna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587504325771-0ti7fer73le2t6r9frkflj29sjevds54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDApPFiLylbs0yvoUklscWK0PgfLvSLzPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587504325771-0ti7fer73le2t6r9frkflj29sjevds54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
