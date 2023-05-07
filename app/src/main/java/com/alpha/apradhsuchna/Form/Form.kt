@@ -9,14 +9,17 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.alpha.apradhsuchna.R
 import com.alpha.apradhsuchna.databinding.FragmentFormBinding
+import com.alpha.apradhsuchna.fcm.topic
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -48,6 +51,16 @@ class form : Fragment() {
     var user: FirebaseUser? = null
     var reference: DatabaseReference? = null
     val db = FirebaseFirestore.getInstance().collection("records")
+    var criminal_name:String?=null
+    var co:String?=null
+    var address:String?=null
+    var police_station:String?=null
+    var case_no:String?=null
+    var section:String?=null
+    var court_name:String?=null
+    var image_link:String?=null
+    var more_details:String?=null
+    var age:String?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -57,6 +70,19 @@ class form : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         user = mAuth!!.currentUser
         reference = FirebaseDatabase.getInstance().reference
+        if(arguments!=null){
+            criminal_name=requireArguments().getString("criminal_name")
+            co=requireArguments().getString("co")
+            address=requireArguments().getString("address")
+            police_station=requireArguments().getString("police_station")
+            case_no=requireArguments().getString("case_no")
+            section=requireArguments().getString("section")
+            court_name=requireArguments().getString("court_name")
+            more_details=requireArguments().getString("more_details")
+            image_link=requireArguments().getString("image_link")
+            age=requireArguments().getString("age")
+            set_values()
+        }
         binding.submitTxt.setOnClickListener{
             submit_data()
         }
@@ -79,7 +105,29 @@ class form : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
         return binding.root
+    }
+
+    private fun set_values() {
+        binding.criminalNameEdt.setText(criminal_name)
+        binding.co.setText(co)
+        binding.address.setText(address)
+        binding.psEdit.setText(police_station)
+        binding.caseNoEdt.setText(case_no)
+        binding.section.setText(section)
+        binding.courtname.setText(court_name)
+        binding.moredetails.setText(more_details)
+        binding.age.setText(age)
+        if(image_link!=null) {
+            selected_uri_pdf=Uri.parse(image_link)
+            Log.e("selected uri","$selected_uri_pdf")
+        }
     }
 
     private fun submit_data() {
@@ -115,6 +163,10 @@ class form : Fragment() {
                             pushkey?.let {
                                 db.document(it).set(map)
                             }
+                            val topic= topic()
+                            topic.noti(binding.criminalNameEdt.text.toString().trim()
+                                ,"New data added."
+                                , pushkey!!,"")
                             clear()
                             Snackbar.make(binding.lay1, "Recorded created successfully..", Snackbar.LENGTH_LONG)
                                 .setActionTextColor(Color.parseColor("#000000"))
@@ -241,6 +293,10 @@ class form : Fragment() {
                     pushkey?.let {
                         db.document(it).set(map)
                     }
+                    val topic= topic()
+                    topic.noti(binding.criminalNameEdt.text.toString().trim()
+                        ,"New data added."
+                        , pushkey!!,"")
                     dialog1!!.dismiss()
                     clear()
                     Snackbar.make(binding.lay1, "Record Uploaded Successfully.", Snackbar.LENGTH_LONG)

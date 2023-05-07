@@ -95,7 +95,7 @@
                     android:paddingTop="12dp"
                     android:paddingEnd="15dp"
                     android:paddingBottom="10dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/admin"
                     app:layout_constraintTop_toTopOf="parent"

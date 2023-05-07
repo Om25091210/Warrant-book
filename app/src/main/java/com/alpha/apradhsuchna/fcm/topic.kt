@@ -22,7 +22,10 @@ class topic {
 
         FirebaseMessaging.getInstance().subscribeToTopic(TOPIC)
         Log.e("msg","$TOPIC")
+        Log.e("msg","$name")
+        Log.e("msg","$phone")
         if(name.isNotEmpty() && phone.isNotEmpty()){
+            Log.e("msg","$phone")
             PushNotification(
                 NotificationData(name, phone,key,section),
                 TOPIC

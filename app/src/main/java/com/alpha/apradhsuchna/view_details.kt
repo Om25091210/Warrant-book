@@ -1,9 +1,9 @@
 package com.alpha.apradhsuchna
 
-import com.alpha.apradhsuchna.fcm.topic
 import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
@@ -12,13 +12,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alpha.apradhsuchna.Adapter.commentAdapter
+import com.alpha.apradhsuchna.Form.form
 import com.alpha.apradhsuchna.databinding.FragmentViewDetailsBinding
-import com.alpha.apradhsuchna.fcm.Specific
+import com.alpha.apradhsuchna.fcm.topic
 import com.alpha.apradhsuchna.model.Comments
 import com.alpha.apradhsuchna.model.UsersData
 import com.alpha.apradhsuchna.model.record_data
@@ -102,6 +103,21 @@ class view_details : Fragment() {
             }
         }
 
+        binding.share.setOnClickListener {
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            var message = "Criminal Name - " + list[0].criminal_name + "\n" +
+                    "C/O - " + list[0].co + "\n" +
+                    "Address - " + list[0].address + "\n" +
+                    "Police Station - " + list[0].police_station + "\n" +
+                    "Case No - " + list[0].case_no + "\n" +
+                    "Section - " + list[0].section + "\n" +
+                    "Court Name - " + list[0].court_name +
+                    "Age - " + list[0].age + "\n\n" +
+                    "This data is provided from warrant book, download it from playstore - "+ "https://play.google.com/store/apps/details?id=" + getContextNullSafety()!!.packageName
+            shareIntent.putExtra(Intent.EXTRA_TEXT, message)
+            startActivity(Intent.createChooser(shareIntent, "Share link using"))
+        }
         binding.btnSend.setOnClickListener{
             if(binding.editWriteMessage.text.toString().trim()!=""){
                 val ref=rootRef.collection("comments")
@@ -181,6 +197,34 @@ class view_details : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        binding.profileImage.setOnClickListener{
+            if(user_model!!.role=="admin"){
+                val bundle=Bundle()
+                bundle.putString("criminal_name",list[0].criminal_name)
+                bundle.putString("co",list[0].co)
+                bundle.putString("address",list[0].address)
+                bundle.putString("police_station",list[0].police_station)
+                bundle.putString("case_no",list[0].case_no)
+                bundle.putString("section",list[0].section)
+                bundle.putString("court_name",list[0].court_name)
+                bundle.putString("more_details",list[0].more_details)
+                bundle.putString("image_link",list[0].image_link)
+                bundle.putString("age",list[0].age)
+                val form=form()
+                form.arguments=bundle
+                (getContextNullSafety() as FragmentActivity).supportFragmentManager
+                    .beginTransaction()
+                    .setCustomAnimations(
+                        R.anim.enter_from_right,
+                        R.anim.exit_to_left,
+                        R.anim.enter_from_left,
+                        R.anim.exit_to_right
+                    )
+                    .add(R.id.drawer, form)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
         binding.delete.setOnClickListener{
             val dialogD = Dialog(getContextNullSafety()!!)
             dialogD.setCancelable(true)
@@ -207,6 +251,12 @@ class view_details : Fragment() {
                 dialogD.dismiss()
             }
         }
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
         return binding.root
     }
 

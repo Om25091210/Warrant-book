@@ -32,4 +32,5 @@
 -keepclassmembers class com.alpha.apradhsuchna.model.** {
     *;
 }
-
+-keep class com.alpha.apradhsuchna.fcm.** { *; }
+-keep class com.google.firebase.messaging.** { *; }
